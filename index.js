@@ -10,8 +10,10 @@ const simbolos = [
 ]
 
 
-
 fn.lerDiretorio(caminho)
+    .subscribe(console.log)
+
+/* fn.lerDiretorio(caminho)
     .then(fn.elementosTerminadosCom('.srt'))
     .then(fn.lerArquivos)
     .then(fn.mesclarElementos)
@@ -26,4 +28,4 @@ fn.lerDiretorio(caminho)
     .then(fn.removerElementosSeApenasNumero)
     .then(fn.agruparElementos)
     .then(fn.ordenarPorAtribNumerico('qtde', 'desc'))
-    .then(console.log)
+    .then(console.log) */

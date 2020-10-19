@@ -1,18 +1,16 @@
-const { rejects } = require('assert')
 const fs = require('fs')
-const { resolve } = require('path')
 const path = require('path')
+const { Observable } = require('rxjs')
 
 function lerDiretorio(caminho) {
-    return new Promise((resolve, reject) => {
+    return new Observable(subscriber => {
         try {
-            const arquivos = fs.readdirSync(caminho)
-            const arquivosCompletos = arquivos.map(arquivo => {
-                return path.join(caminho, arquivo)
+            fs.readdirSync(caminho).forEach(arquivo => {
+                subscriber.next(path.join(caminho, arquivo))
             })
-            resolve(arquivosCompletos)
+            subscriber.complete()
         } catch (e) {
-            reject(e)
+            subscriber.error(e)
         }    
     })  
 }
