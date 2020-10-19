@@ -1,5 +1,5 @@
 const path = require('path')
-const fn = require('./funcoes')
+const fn = require('../funcoes')
 
 const caminho = path.join(__dirname, '..', 'dados', 'legendas')
 
@@ -11,6 +11,9 @@ const simbolos = [
 
 
 fn.lerDiretorio(caminho)
+    .pipe(
+        fn.elementosTerminadosCom('.txt')
+    )
     .subscribe(console.log)
 
 /* fn.lerDiretorio(caminho)
